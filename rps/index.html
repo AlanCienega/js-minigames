@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rock paper scissors</title>
+  <link rel="stylesheet" href="../src/app.css" />
+</head>
+
+<body class="bg-slate-200 items-center" id="body">
+  <div class="flex justify-end max-w-3xl mx-auto hover:text-slate-600"><a href="/">Regresar</a></div>
+  <div class="grid grid-cols-1 md:grid-cols-3 text-center text-7xl my-8 items-center max-w-3xl mx-auto">
+    <span id="rock" class="cursor-pointer hover:text-8xl transition-all my-9">&#129704;</span>
+    <span id="paper" class="cursor-pointer hover:text-8xl transition-all my-9">&#129531;</span>
+    <span id="scissors" class="cursor-pointer hover:text-8xl transition-all my-9">&#9988;</span>
+  </div>
+  <div class="container text-center text-3xl text-slate-600">
+    <div id="enemy">Enemy = ?</div>
+    <div id="score"> Score : 0</div>
+    <div id="max_score">Max : 0</div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
