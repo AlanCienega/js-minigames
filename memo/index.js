@@ -46,6 +46,7 @@ function checkCards() {
   flippedCards.forEach((element) => {
     let myCard = document.getElementById(element.id);
     myCard.style.display = "";
+    myCard.classList.remove("bg-slate-200");
     myCard.classList.add("bg-green-500");
   });
   if (checked_cards >= cards.length * 2) {
