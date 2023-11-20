@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahorcado</title>
+  <link rel="stylesheet" href="../src/app.css" />
+</head>
+
+<body>
+  <div class="flex justify-end max-w-3xl mx-auto hover:text-slate-600 p-4"><a href="/">Regresar</a></div>
+  <center class="max-w-3xl mx-auto">
+    <section id="board"></section>
+    <section id="keyboard"></section>
+    <pre id="hangman" class="text-left"></pre>
+    <button id="message" class="p-3 rounded-lg text-white" onclick="location.reload()"></button>
+  </center>
+  <div class="hidden">
+    <span class="bg-zinc-200 m-2 w-8 text-center">input normal</span>
+    <span class="bg-emerald-700 hover:bg-emerald-500"></span>
+    <span class="bg-red-700 hover:bg-red-500"></span>
+    <button class="bg-zinc-300 w-10 h-10 rounded text-2xl hover:shadow-xl" id="btn">txt</button>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
