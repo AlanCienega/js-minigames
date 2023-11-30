@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../src/app.css" />
+  <title>Tic tac toe</title>
+</head>
+
+<body>
+  <div class="flex justify-end max-w-3xl mx-auto hover:text-slate-600 p-4">
+    <a href="/">Regresar</a>
+  </div>
+  <section>
+    <center>
+      <div class="grid grid-cols-3 gap-2 m-2 md:mx-40 lg:mx-80 bg-black" id="board"></div>
+      <div id="info"></div>
+      <button id="playAgain" class="hidden bg-red-700 text-white p-2 rounded-lg hover:bg-red-600"
+        onclick="location.reload()">
+        Game over
+      </button>
+    </center>
+  </section>
+  <div class="hidden h-32 bg-white hover:bg-neutral-300 justify-center items-center">
+    cell classes
+  </div>
+  <div class="text-5xl text-cyan-400 font-bold"></div>
+  <script src="index.js"></script>
+</body>
+
+</html>
