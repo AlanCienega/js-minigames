@@ -47,7 +47,6 @@ function checkGameStatus() {
   }
 }
 function disableKeys() {
-  console.log("deshabilitando");
   for (let i = 0; i < keyboard.children.length; i++) {
     const element = keyboard.children[i];
     element.setAttribute("disabled", "");
@@ -107,7 +106,6 @@ function choosePokemon(pokemons) {
 async function drawInputs() {
   const pokemons = await fetchPokemons();
   randomPokemon = choosePokemon(pokemons);
-  console.log(randomPokemon);
   createInputs(randomPokemon.name.length);
 }
 

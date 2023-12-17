@@ -1,5 +1,6 @@
 let board = document.getElementById("board");
-let tries = document.getElementById("tries");
+let gameInfo = document.getElementById("game_info");
+const btnGameOver = document.getElementById("btnGameOver");
 let cards = ["♡", "☻", "☼", "♤", "⚈", "⚐", "⚑", "⚒", "✣", "⚙", "⚛", "☠"];
 let unsorted = [];
 let flippedCards = [];
@@ -7,14 +8,21 @@ let flippedCardsCounter = 0;
 let level = 0;
 let checked_cards = 0;
 level = 2;
+let tries = cards.length * level;
 /* do {
   level = prompt(
     "Elije dificultad, numero de cartas a descubir (numero mayor a 1)"
   );
 } while (level < 2);
 */
-tries.textContent = cards.length * level;
+gameInfo.textContent = `${tries} intentos restantes`;
 
+btnGameOver.addEventListener("mouseenter", (evt) => {
+  evt.target.textContent = "Jugar de nuevo";
+});
+btnGameOver.addEventListener("mouseleave", (evt) => {
+  evt.target.textContent = "Fin del juego";
+});
 function unsortCards(items) {
   for (let i = 1; i <= parseInt(level); i++) {
     let items_copy = [...items];
@@ -50,13 +58,12 @@ function checkCards() {
     myCard.classList.add("bg-green-500");
   });
   if (checked_cards >= cards.length * 2) {
-    setTimeout(() => {
-      alert("You Win");
-      location.reload();
-    }, 500);
+    btnGameOver.classList.remove("hidden");
   }
 }
 function handleFlipCard(event) {
+  if (flippedCardsCounter >= level) return;
+  if (tries < 1) return;
   flipCard(event.target.id);
   flippedCardsCounter++;
   // almacenar cartas volteadas mientras sea menor al nivel
@@ -76,10 +83,10 @@ function handleFlipCard(event) {
           resetStylesToFlippedCards();
           flippedCardsCounter = 0;
           flippedCards = [];
-          tries.textContent = parseInt(tries.textContent) - 1;
-          if (parseInt(tries.textContent) < 1) {
-            alert("ya valio");
-            location.reload();
+          tries--;
+          gameInfo.textContent = `${tries} intentos restantes`;
+          if (tries < 1) {
+            btnGameOver.classList.remove("hidden");
           }
         }, 500);
       }
@@ -106,8 +113,7 @@ function printCards() {
       "m-3",
       "rounded-md"
     );
-    // btn.id = crypto.randomUUID();
-    btn.id = Math.floor(Math.random() * 100000);
+    btn.id = crypto.randomUUID();
     btn.addEventListener("click", handleFlipCard);
     btn.appendChild(txt);
     board.appendChild(btn);

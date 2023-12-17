@@ -1,12 +1,14 @@
 let board = document.getElementById("board");
 let body = document.getElementsByTagName("body");
 let info = document.getElementById("info");
+const btnGameOver = document.getElementById("btnGameOver");
 let buttons = [];
 let level = 1;
 let random_sequence = [];
 let current_move = 0;
 let sequence_index = 0;
 let visible_time = 400;
+let isGameOver = false;
 let background_colors = [
   "bg-red-600",
   "bg-violet-600",
@@ -45,6 +47,7 @@ function changeColor(button_id) {
 }
 
 function HandleClick(event) {
+  if (isGameOver) return;
   changeColor(event.target.id);
   current_move++;
   if (current_move == level) {
@@ -52,7 +55,7 @@ function HandleClick(event) {
       addRandomElement();
       setTimeout(() => {
         level++;
-        info.innerText = `Level ${level}`;
+        info.innerText = `Nivel ${level}`;
         sequence_index = 0;
         current_move = 0;
         illuminateSequence();
@@ -62,8 +65,8 @@ function HandleClick(event) {
       current_move = 0;
       level = 0;
       random_sequence = [];
-      alert("Game Over");
-      location.reload();
+      isGameOver = true;
+      btnGameOver.classList.remove("hidden");
     }
   } else {
     if (random_sequence[current_move - 1].id != event.target.id) {
@@ -71,8 +74,8 @@ function HandleClick(event) {
       current_move = 0;
       level = 0;
       random_sequence = [];
-      alert("Game over");
-      location.reload();
+      isGameOver = true;
+      btnGameOver.classList.remove("hidden");
     }
   }
 }
@@ -111,7 +114,7 @@ function createButtons() {
 
 createButtons();
 setTimeout(function () {
-  info.innerText = `Level 1`;
+  info.innerText = `Nivel 1`;
   addRandomElement();
   illuminateSequence();
 }, 1500);
