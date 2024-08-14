@@ -100,9 +100,9 @@ function handleFlipCard(event) {
 function printCards() {
   unsorted.forEach((element) => {
     // crear texto
-    txt = document.createTextNode(element);
+    let txt = document.createTextNode(element);
     // crear boton con su id y evento
-    btn = document.createElement("button");
+    let btn = document.createElement("button");
     btn.classList.add(
       "shadow-lg",
       "hover:bg-blue-700",

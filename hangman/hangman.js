@@ -87,7 +87,7 @@ function createKeyboard() {
   alphabet.forEach((key) => {
     let btn = document.createElement("button");
     btn.addEventListener("click", handleClick);
-    styledBtn = setButtonClasses(btn, key);
+    let styledBtn = setButtonClasses(btn, key);
     keyboard.append(styledBtn);
   });
 }
